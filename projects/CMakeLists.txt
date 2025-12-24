@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 3.31)
 
-project(study)
+project(multilevel)
 
 enable_testing()
 add_subdirectory(lib/googletest)
 
 add_subdirectory(didactiyka)
-add_subdirectory(sort)
-add_subdirectory(unit_test)
+add_subdirectory(bubble)
+add_subdirectory(merge)
+add_subdirectory(unit_test_merge)
+add_subdirectory(unit_test_buble)
 
 
 set(CMAKE_SUPPRESS_REGENERATION true)

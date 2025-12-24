@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ -d build_ninja ]; then
+    cd build_ninja
+    ctest --output-on-failure
+    cd ..
+fi
+
+
