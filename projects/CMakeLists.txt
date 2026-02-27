@@ -11,6 +11,7 @@ add_subdirectory(merge)
 add_subdirectory(unit_test_merge)
 add_subdirectory(unit_test_buble)
 
+add_subdirectory(long_num)
 
 set(CMAKE_SUPPRESS_REGENERATION true)
 

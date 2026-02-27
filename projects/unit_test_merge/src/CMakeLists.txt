@@ -1,11 +1,11 @@
-target_sources(merge_sort_lib
+target_sources(${MERGE_LIB}
     PRIVATE
         sortings.cpp
     PUBLIC
         sortings.hpp
 )
 
-target_include_directories(merge_sort_lib PUBLIC
+target_include_directories(${MERGE_LIB} PUBLIC
     "${PROJECT_SOURCE_DIR}/src"
 )
 
