@@ -95,6 +95,42 @@ TEST(LongNumberTest, IsNegative) {
     EXPECT_FALSE(zero.is_negative());
 }
 
+TEST(StringCompareTestSum, CheckEquality) {
+    std::string str1 = "500";
+    LongNumber ln1("200");
+    LongNumber ln2("300");
+    LongNumber ln3 = ln1 + ln2;
+    std::string str2 = getNumberString(ln3);
+    EXPECT_EQ(str1, str2) << "Неверный результат сложения";
+}
+
+TEST(StringCompareTestSubtraction, CheckEquality) {
+    std::string str1 = "100";
+    LongNumber ln1("200");
+    LongNumber ln2("300");
+    LongNumber ln3 = ln2 - ln1;
+    std::string str2 = getNumberString(ln3);
+    EXPECT_EQ(str1, str2) << "Неверный результат вычитания";
+}
+
+TEST(StringCompareTestMultiple, CheckEquality) {
+    std::string str1 = "60000";
+    LongNumber ln1("200");
+    LongNumber ln2("300");
+    LongNumber ln3 = ln1 * ln2;
+    std::string str2 = getNumberString(ln3);
+    EXPECT_EQ(str1, str2) << "Неверный результат умножения";
+}
+
+TEST(StringCompareTestDivision, CheckEquality) {
+    std::string str1 = "200";
+    LongNumber ln1("60000");
+    LongNumber ln2("300");
+    LongNumber ln3 = ln1 / ln2;
+    std::string str2 = getNumberString(ln3);
+    EXPECT_EQ(str1, str2) << "Неверный результат деления";
+}
+
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

@@ -40,6 +40,7 @@ namespace al {
         bool is_zero() const noexcept;
 
         friend std::ostream& operator << (std::ostream &os, const LongNumber& x);
+        friend std::string getNumberString(const LongNumber& x);
 
     private:
         int get_length(const char* const str) const noexcept;
