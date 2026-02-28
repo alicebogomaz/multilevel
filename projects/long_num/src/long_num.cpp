@@ -425,7 +425,7 @@ LongNumber LongNumber::operator / (const LongNumber& x) const
         current = current - product;
     }
 
-    if (this->sign == -1 && (x.sign == 1 || x.sign == -1) && x.numbers[0] > 1) {
+    if (this->sign == -1 && x.numbers[0] > 1) {
         quotient.numbers[quotient.length - 1] = quotient.numbers[quotient.length - 1] + 1;
     }
 
