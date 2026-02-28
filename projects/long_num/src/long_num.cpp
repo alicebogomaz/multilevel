@@ -425,6 +425,10 @@ LongNumber LongNumber::operator / (const LongNumber& x) const
         current = current - product;
     }
 
+    if (this->sign == -1 && (x.sign == 1 || x.sign == -1) && x.numbers[0] > 1) {
+        quotient.numbers[quotient.length - 1] = quotient.numbers[quotient.length - 1] + 1;
+    }
+
     int begin = 0;
     while (begin < quotient.length - 1 && quotient.numbers[begin] == 0) {
         begin++;
@@ -444,18 +448,7 @@ LongNumber LongNumber::operator / (const LongNumber& x) const
 
 LongNumber LongNumber::operator % (const LongNumber& x) const
 {
-    if (this->is_zero() || x.is_zero()) {
-        return LongNumber();
-    }
-
-    LongNumber remains = *this;
-    while (remains >= x) {
-        remains = remains - x;
-    }
-
-    remains.sign = 1;
-
-    return remains;
+    return *this - (*this / x) * x;
 }
 
 bool LongNumber::is_negative() const noexcept
