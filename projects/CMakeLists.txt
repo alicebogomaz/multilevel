@@ -8,6 +8,7 @@ add_subdirectory(lib/googletest)
 add_subdirectory(didactiyka)
 add_subdirectory(bubble)
 add_subdirectory(merge)
+add_subdirectory(vector_and_list)
 add_subdirectory(unit_test_merge)
 add_subdirectory(unit_test_buble)
 
