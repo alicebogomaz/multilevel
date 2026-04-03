@@ -14,6 +14,9 @@ template<typename T>
 Vector<T>::~Vector()
 {
 	delete[] arr;
+	arr = nullptr;
+	size = 0;
+	capacity = 0;
 }
 
 template<typename T>
@@ -50,7 +53,7 @@ bool Vector<T>::insert(const std::size_t position, const T& value)
 	if (size == capacity) {
 		T* newArr = new T[capacity * 2];
 
-		for (std::size_t index = 0; index < capacity; index++) {
+		for (std::size_t index = 0; index < size; index++) {
 			newArr[index] = arr[index];
 		}
 
@@ -116,6 +119,25 @@ bool Vector<T>::remove_first(const T& value)
 			}
 
 			size--;
+
+			if (size <= capacity / 4  && capacity > START_CAPACITY) {
+				std::size_t newCapacity = capacity / 2;
+
+				if (newCapacity < START_CAPACITY) {
+					newCapacity = START_CAPACITY;
+				}
+
+				T* newArr = new T[newCapacity];
+
+				for (std::size_t index = 0; index < size; index++) {
+					newArr[index] = arr[index];
+				}
+
+				delete[] arr;
+				arr = newArr;
+				capacity = newCapacity;
+			}
+
 			return true;
 		}
 	}
